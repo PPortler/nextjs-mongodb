@@ -19,8 +19,9 @@ export async function PUT(req, {params}){
 }
 
 export async function DELETE(req){
-    const id = req.nextUrl.searchParams.get("id");
+    const id = req.nextUrl.pathname.split('/').pop();
     await connectMongoDB();
+    console.log(id)
     await Post.findByIdAndDelete(id);
     return NextResponse.json({message:"Post deleted"},{status:200})
 }
