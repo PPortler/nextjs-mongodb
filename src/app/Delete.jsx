@@ -8,7 +8,7 @@ function Delete({id}) {
         const confirmed = confirm("Are you sure?");
 
         if(confirmed){
-            const res = await fetch(`http://localhost:3000/api/posts/posts?id=${id}`,{
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/posts/${id}`,{
                 method: "DELETE"
             })
 
