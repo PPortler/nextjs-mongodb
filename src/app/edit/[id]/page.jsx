@@ -20,7 +20,7 @@ function EditPost({ params }) {
 
     const getPostById = async (id) => {
         try{    
-            const res = await fetch(`http://localhost:3000/api/posts/${id}`,{
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/posts/${id}`,{
                 method:"GET",
                 cache: "no-store"
             })
@@ -45,7 +45,7 @@ function EditPost({ params }) {
         e.preventDefault();
 
         try{
-            const res = await fetch(`http://localhost:3000/api/posts/${id}`,{
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/posts/${id}`,{
                 method: "PUT",
                 headers:{
                     "Content-Type": "Application/json"
